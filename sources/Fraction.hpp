@@ -21,7 +21,7 @@ namespace ariel{
             Fraction(int numerator, int denominator):
             numerator_(numerator), denominator_(denominator){
                 if(denominator_ == 0){
-                    throw new invalid_argument("denominator cannot be 0");
+                    throw new std::invalid_argument("denominator cannot be 0");
                 }
             }
             
@@ -32,7 +32,7 @@ namespace ariel{
             //destructor
             ~Fraction();
 
-            //Operators
+            //Arithmetic Operators
             Fraction operator+(const Fraction&) const;
             friend Fraction operator+(const double, const Fraction&);
             friend Fraction operator+(const Fraction&, const double);
@@ -49,21 +49,40 @@ namespace ariel{
             friend Fraction operator/(const double, const Fraction&);
             friend Fraction operator/(const Fraction&, const double);
 
-            Fraction& operator=(const Fraction&);
+            //Comparison Operators
             bool operator==(const Fraction&) const;
+            friend bool operator==(const Fraction&, const double);
+            friend bool operator==(const double, const Fraction&);
+            
             bool operator>(const Fraction&) const;
+            friend bool operator>(const Fraction&, const double);
+            friend bool operator>(const double, const Fraction&);
+
             bool operator<(const Fraction&) const;
+            friend bool operator<(const Fraction&, const double);
+            friend bool operator<(const double, const Fraction&);
+
             bool operator>=(const Fraction&) const;
+            friend bool operator>=(const Fraction&, const double);
+            friend bool operator>=(const double, const Fraction&);
+            
             bool operator<=(const Fraction&) const;
+            friend bool operator<=(const Fraction&, const double);
+            friend bool operator<=(const double, const Fraction&);
+
+            //Assignment Operator
+            Fraction& operator=(const Fraction&);
+
             //prefix
             Fraction& operator++(){
-                numerator_++;
+                numerator_+= denominator_;
                 return *this;
             }
             Fraction& operator--(){
-                numerator_--;
+                numerator_-= denominator_;
                 return *this;
             }
+
             //postfix
             Fraction operator++(int flag_to_overload){
                 Fraction copy = *this;
@@ -75,6 +94,7 @@ namespace ariel{
                 numerator_--;
                 return copy;
             }
+            
             friend std::ostream& operator<< (std::ostream& output, const Fraction& c);
             friend std::istream& operator>> (std::istream& input , Fraction& c);
     };

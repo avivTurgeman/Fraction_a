@@ -19,13 +19,13 @@ TEST_CASE("Fraction initialization"){
 TEST_CASE("operator+"){
     Fraction one(1,1);
     Fraction two(2,1);
-    Fraction three_5(7,2);
-    Fraction two_5(5,2);
+    Fraction three_half(7,2);
+    Fraction two_half(5,2);
 
     CHECK_EQ(one + one, two);
     CHECK_EQ(one + 1, two);
-    CHECK_EQ(2.5 + one, three_5);
-    CHECK_EQ(two_5 + one, three_5);
+    CHECK_EQ(2.5 + one, three_half);
+    CHECK_EQ(two_half + one, three_half);
     CHECK_EQ(1.5 + one + two, two + 2.5);
 }
 
@@ -64,86 +64,86 @@ TEST_CASE("operator/"){
 }
 
 TEST_CASE("operator=="){
-    Fraction one_and_a_half(3,2);
-    Fraction one_and_a_half_tag(6,4);
+    Fraction one_half(3,2);
+    Fraction one_half_tag(6,4);
 
-    CHECK(one_and_a_half == 1.5);
-    CHECK(1.5 == one_and_a_half);
-    CHECK(one_and_a_half_tag == one_and_a_half);
+    CHECK(one_half == 1.5);
+    CHECK(1.5 == one_half);
+    CHECK(one_half_tag == one_half);
 }
 
 TEST_CASE("operator>"){
-    Fraction one_and_a_half(3,2);
-    Fraction two_and_a_half(5,2);
+    Fraction one_half(3,2);
+    Fraction two_half(5,2);
 
-    CHECK(two_and_a_half > 1.5);
-    CHECK(3.5 > two_and_a_half);
-    CHECK(two_and_a_half > one_and_a_half);
+    CHECK(two_half > 1.5);
+    CHECK(3.5 > two_half);
+    CHECK(two_half > one_half);
 }
 
 TEST_CASE("operator<"){
-    Fraction one_and_a_half(3,2);
-    Fraction two_and_a_half(5,2);
+    Fraction one_half(3,2);
+    Fraction two_half(5,2);
 
-    CHECK(1.5 < two_and_a_half);
-    CHECK(two_and_a_half < 3.5);
-    CHECK(one_and_a_half < two_and_a_half);
+    CHECK(1.5 < two_half);
+    CHECK(two_half < 3.5);
+    CHECK(one_half < two_half);
 }
 
 TEST_CASE("operator>="){
-    Fraction one_and_a_half(3,2);
-    Fraction two_and_a_half(5,2);
+    Fraction one_half(3,2);
+    Fraction two_half(5,2);
 
-    CHECK(two_and_a_half >= 1.5);
-    CHECK(one_and_a_half >= 1.5);
-    CHECK(3.5 >= two_and_a_half);
-    CHECK(2.5 >= two_and_a_half);
-    CHECK(two_and_a_half >= one_and_a_half);
-    CHECK(two_and_a_half >= two_and_a_half);
+    CHECK(two_half >= 1.5);
+    CHECK(one_half >= 1.5);
+    CHECK(3.5 >= two_half);
+    CHECK(2.5 >= two_half);
+    CHECK(two_half >= one_half);
+    CHECK(two_half >= two_half);
 }
 
 TEST_CASE("operator<="){
-    Fraction one_and_a_half(3,2);
-    Fraction two_and_a_half(5,2);
+    Fraction one_half(3,2);
+    Fraction two_half(5,2);
 
-    CHECK(1.5 <= two_and_a_half);
-    CHECK(1.5 <= one_and_a_half);
-    CHECK(two_and_a_half <= 3.5);
-    CHECK(two_and_a_half <= 2.5);
-    CHECK(one_and_a_half <= two_and_a_half);
-    CHECK(two_and_a_half <= two_and_a_half);
+    CHECK(1.5 <= two_half);
+    CHECK(1.5 <= one_half);
+    CHECK(two_half <= 3.5);
+    CHECK(two_half <= 2.5);
+    CHECK(one_half <= two_half);
+    CHECK(two_half <= two_half);
 }
 
 TEST_CASE("++operator (prefix)"){
-    Fraction one_and_a_half(3,2);
-    Fraction two_and_a_half(5,2);
+    Fraction one_half(3,2);
+    Fraction two_half(5,2);
 
-    CHECK_NE(one_and_a_half, two_and_a_half);
-    CHECK_EQ(++one_and_a_half, two_and_a_half);
+    CHECK_NE(one_half, two_half);
+    CHECK_EQ(++one_half, two_half);
 }
 
 TEST_CASE("--operator (prefix)"){
-    Fraction one_and_a_half(3,2);
-    Fraction two_and_a_half(5,2);
+    Fraction one_half(3,2);
+    Fraction two_half(5,2);
 
-    CHECK_NE(one_and_a_half, two_and_a_half);
-    CHECK_EQ(one_and_a_half, --two_and_a_half);
+    CHECK_NE(one_half, two_half);
+    CHECK_EQ(one_half, --two_half);
 }
 
 TEST_CASE("operator++ (postfix)"){
-    Fraction one_and_a_half(3,2);
-    Fraction two_and_a_half(5,2);
+    Fraction one_half(3,2);
+    Fraction two_half(5,2);
 
-    CHECK_NE(one_and_a_half++, two_and_a_half);
-    CHECK_EQ(one_and_a_half, two_and_a_half);
+    CHECK_NE(one_half++, two_half);
+    CHECK_EQ(one_half, two_half);
 }
 
 TEST_CASE("operator-- (postfix)"){
-    Fraction one_and_a_half(3,2);
-    Fraction two_and_a_half(5,2);
+    Fraction one_half(3,2);
+    Fraction two_half(5,2);
 
-    CHECK_NE(one_and_a_half, two_and_a_half--);
-    CHECK_EQ(one_and_a_half, two_and_a_half);
+    CHECK_NE(one_half, two_half--);
+    CHECK_EQ(one_half, two_half);
 }
 
 TEST_CASE("operator<< overload")
@@ -188,11 +188,11 @@ TEST_CASE("operator>> overload"){
 TEST_CASE("combinning all of the operators"){
     Fraction zero(0,1);
     Fraction one(1,1);
-    Fraction one_and_a_half(3,2);
+    Fraction one_half(3,2);
     Fraction two(2,1);
-    Fraction two_and_a_half(5,2);
+    Fraction two_half(5,2);
 
-    CHECK(one + 2.5 - one_and_a_half == 1.5 + one_and_a_half - 1);
+    CHECK(one + 2.5 - one_half == 1.5 + one_half - 1);
     CHECK(zero * (1.5 + two) == 0);
 }
 

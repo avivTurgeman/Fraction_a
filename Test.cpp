@@ -1,7 +1,7 @@
 #include <stdexcept>
 #include <sstream>
 #include "doctest.h"
-#include "Fraction.hpp"
+#include "sources/Fraction.hpp"
 
 using namespace std;
 using namespace ariel;
